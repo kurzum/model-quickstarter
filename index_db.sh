@@ -140,29 +140,29 @@ SELECT  ?file WHERE {
             ?dataset dataid:artifact ?artifact .
             ?dataset dct:hasVersion ?version
             FILTER (?artifact in (
-		        # GENERIC 
+            # GENERIC 
                 <https://databus.dbpedia.org/dbpedia/generic/disambiguations> ,
                 <https://databus.dbpedia.org/dbpedia/generic/redirects> ,
                 # MAPPINGS
-          	    <https://databus.dbpedia.org/dbpedia/mappings/instance-types>
-             	# latest ontology, currently @denis account
-          		# TODO not sure if needed for Spotlight
+                <https://databus.dbpedia.org/dbpedia/mappings/instance-types>
+              # latest ontology, currently @denis account
+              # TODO not sure if needed for Spotlight
                 # <https://databus.dbpedia.org/denis/ontology/dbo-snapshots>
              )) .
              }GROUP BY ?artifact 
-	} 
-  		
+  } 
+      
     ?dataset dct:hasVersion ?latestVersion .
     {
           ?dataset dataid:artifact ?artifact .
           ?dataset dcat:distribution ?distribution .
           ?distribution dcat:downloadURL ?file .
           ?distribution dataid:contentVariant '$LANGUAGE'^^xsd:string .
-          # remove debug info	
+          # remove debug info 
           MINUS {
                ?distribution dataid:contentVariant ?variants . 
                FILTER (?variants in ('disjointDomain'^^xsd:string, 'disjointRange'^^xsd:string))
-          }  		
+          }     
     }   
 } ORDER by ?artifact
 "
@@ -175,12 +175,12 @@ TMPDOWN="dump-tmp-download"
 mkdir $TMPDOWN 
 cd $TMPDOWN
 for i in $RESULT
-	do  
-			wget $i 
-			ls
-			echo $TMPDOWN
-			pwd
-	done
+  do  
+      wget $i 
+      ls
+      echo $TMPDOWN
+      pwd
+  done
 
 cd ..
 
@@ -244,6 +244,7 @@ rm -f $WDIR/dump.xml
 #Create the model:
 cd $BASE_WDIR/dbpedia-spotlight
 
+mvn -Dhttps.protocols=TLSv1.2 install
 mvn -pl index exec:java -Dexec.mainClass=org.dbpedia.spotlight.db.CreateSpotlightModel -Dexec.args="$2 $WDIR $TARGET_DIR $opennlp $STOPWORDS $4Stemmer"
 
 if [ "$eval" == "true" ]; then
