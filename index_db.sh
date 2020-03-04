@@ -234,6 +234,9 @@ if [ "$blacklist" != "false" ]; then
 fi
 
 echo "Finished wikistats extraction. Cleaning up..."
+# analyse up to here
+find $wdir
+exit 
 rm -f $WDIR/dump.xml
 
 
