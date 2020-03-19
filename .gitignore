@@ -1,6 +1,6 @@
 *.gz
 *.bz2
 wdir/*
-spotlight/*
+target/
 data/*
 models/*
