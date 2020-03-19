@@ -1,0 +1,6 @@
+*.gz
+*.bz2
+wdir/*
+data/*
+spotlight/*
+models/*
