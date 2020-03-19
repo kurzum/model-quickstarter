@@ -34,11 +34,11 @@ This tool now uses the wikistatsextractor by the great folks over at [DiffBot](h
 
 You can use this tool to upload an artifact of dbpedia-models and wikistats for an specific languagee.
 
-
+* clone the repository
 * cd model-quickstarter/
 * ./prepare.sh
 
-and then the command to the target model
+and then the command to the target model (pattern: ./artifact_databus_uploader.sh $ignoreListFile $workingdir $locale $stopwordsFile $outputModelDir $artifactDir $artifactVersion)
 
 EN - ./artifact_databus_uploader.sh en/ignore.list wdir en_US en/stopwords.list English models/en spotlight/ 2020.03.11/
 
