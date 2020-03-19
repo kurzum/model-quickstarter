@@ -1,7 +1,0 @@
-.gitignore
-*.gz
-*.bz2
-wdir/*
-target/
-data/*
-models/*
