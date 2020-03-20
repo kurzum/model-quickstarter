@@ -98,7 +98,7 @@ If you use the current (statistical version) of DBpedia Spotlight or the data/mo
 		<goal>exec</goal>
 	      </goals>
 	      <configuration>
-		<executable>/root/git/model-quickstarter-fork/index_model.sh</executable>
+		<executable>/root/git/model-quickstarter-fork/run_artifacts.sh</executable>
 		<commandlineArgs>/root/git/model-quickstarter-fork/wdir cs_CZ /root/git/model-quickstarter-fork/cs/stopwords.list None /root/git/model-quickstarter-fork/models/cs</commandlineArgs>
 	      </configuration>
 	    </execution>
